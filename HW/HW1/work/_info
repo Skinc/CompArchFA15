@@ -7,14 +7,14 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/CA15/HW1
+dC:/CA15/HW1
 vhw1test
-!s110 1442452552
+!s110 1442454615
 !i10b 1
 !s100 TQ[>b]IiJ[9Tf372_HCmf3
 Ii54PI?7[:h@b04:??a88z3
 VDg1SIo80bB@j0V0VzS_@n1
-R0
+dC:/CA15/CompArchFA15/HW/HW1
 w1442452550
 8hw1.v
 Fhw1.v
@@ -23,7 +23,7 @@ OP;L;10.4a;61
 r1
 !s85 0
 31
-!s108 1442452552.000000
+!s108 1442454613.000000
 !s107 hw1.v|
 !s90 -reportprogress|300|-work|work|hw1.v|
 !s101 -O0
