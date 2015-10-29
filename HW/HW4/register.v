@@ -1,20 +1,7 @@
 // Single-bit D Flip-Flop with enable
 //   Positive edge triggered
-module register
-(
-output reg	q,
-input		d,
-input		wrenable,
-input		clk
-);
 
-    always @(posedge clk) begin
-        if(wrenable) begin
-            assign q = d;
-        end
-    end
 
-endmodule
 
 
 module register32
@@ -24,12 +11,12 @@ input[31:0]		d,
 input		wrenable,
 input		clk
 );
-integer i;
-	for (i = 0; i < 32; i = i+1 ) begin
+genvar i;
+for (i = 0; i < 32; i = i+1 ) begin
     	always @(posedge clk) begin
     		if(wrenable) begin
     	
-    			assign q[i] = d[i];
+    			 q[i] = d[i];
     
     		end
         end
@@ -44,10 +31,9 @@ input[31:0]		d,
 input		wrenable,
 input		clk
 );
-integer i;
-	for (i = 0; i < 32; i = i+1 ) begin
-    	assign q[i] = 0;
-    end
+ always @(posedge clk) begin
+    q = 32'd0;
+  end
 
 endmodule
 
@@ -61,7 +47,7 @@ module mux32to1by1
 	input[31:0] inputs
 );
 
-assign out = inputs[address]
+assign out = inputs[address];
 
 
 endmodule
@@ -109,3 +95,17 @@ input[31:0]     input0, input1, input2, input3, input4, input5, input6, input7, 
   assign out = mux[address];    // Connect the output of the array
 endmodule
 
+
+// 32 bit decoder with enable signal
+//   enable=0: all output bits are 0
+//   enable=1: out[address] is 1, all other outputs are 0
+module decoder1to32
+(
+output[31:0]  out,
+input   enable,
+input[4:0]  address
+);
+
+    assign out = enable<<address; 
+
+endmodule
